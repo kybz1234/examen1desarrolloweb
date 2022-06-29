@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Iticket</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div th:if= "${conciertos != null and !conciertos.empty}">
+            <h1>Listado de Conciertos</h1>
+            
+            <a th:href="@{/crearEvento}">Añadir nuevo evento</a>
+
+            <table border="1">
+
+
+
+                <thead>
+                    <tr>
+                        <th>artista</th>
+                        <th>costo del evento</th>
+                        <th>fecha del evento</th>
+                        <th>capacidad maxima de personas</th>
+                        <th>lugar del evento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <th:block th:each="concierto : ${conciertos}">
+                    <tr>
+
+                        <td th:text="${concierto.artista}"></td>
+                        <td th:text="${concierto.costo}"></td>
+                        <td th:text="${concierto.fecha}"></td>
+                        <td th:text="${concierto.capacidad}"></td>
+                        <td th:text="${concierto.lugar}"></td>
+                    </tr>
+                </th:block>
+                </tbody>
+            </table>
+        </div>
+        <div th:if= "${conciertos == null or conciertos.empty}">
+            <h1>no hay conciertos disponibles</h1>
+        </div>
+        
+    </body>
+</html>

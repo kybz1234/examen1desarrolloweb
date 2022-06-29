@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Iticket</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        
+            <h1>crear un nuevo evento</h1>
+            
+            <a th:href="@{/}">regresar a la lista de conciertos</a>
+
+            <form th:action ="@{/argregarEvento}"
+                  method="post"
+                  th:object="${conciertos}">
+                
+                <label for="artista"> artista:</label>
+                <input type="text" name="artista" th:field="*{artista}"/>
+                <br/>
+                <label for="costo"> costo del evento:</label>
+                <input type="text" name="costo" th:field="*{costo}"/>
+                <br/>
+                <label for="fecha"> fecha:</label>
+                <input type="text" name="fecha" th:field="*{fecha}"/>
+                <br/>
+                <label for="capacidad"> capacidad maxima del evento:</label>
+                <input type="text" name="capacidad" th:field="*{capacidad}"/>
+                <br/>
+                <label for="lugar"> lugar:</label>
+                <input type="text" name="lugar" th:field="*{lugar}"/>
+                <br/>
+                <input type="submit" name="guardar" value="guardar"/>
+            </form>
+    </body>
+</html>
